@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+
+<form enctype="multipart/form-data" action="" method="post">
+    {% csrf_token %}
+
+    {# Include the hidden fields #}
+
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+
+    {# Include the visible fields #}
+
+            <p>Please, answer fast. Time is recording  </p>
+
+            <p>{{ form.qs_id.label }}  {{ form.qs_id }}</p>
+            <p>{{ form.qs_id.errors }}</p>
+
+            <p>{{ form.qs_name.label }}  {{ form.qs_name }}</p>
+            <p>{{ form.qs_name.errors }}</p>
+
+            <p>{{ form.qs_text.label }}  {{ form.qs_text }}</p>
+            <p>{{ form.qs_text.errors }}</p>
+
+            {% if form.qs_type.value == 'S' %}
+                <p>{{ form.qs_single_choice.label }}  {{ form.qs_single_choice }}</p>
+                <p>{{ form.qs_single_choice.errors }}</p>
+
+            {% elif form.qs_type.value == 'T' %}
+                <p>{{ form.user_ans.label }}  {{ form.user_ans }}</p>
+                <p>{{ form.user_ans.errors }}</p>
+            {% else %}
+                <p>Use Ctrl+Left Click Mouse for select choices.</p>
+                <p>{{ form.user_ans_multy.label }}  {{ form.user_ans_multy }}</p>
+                <p>{{ form.user_ans_multy.errors }}</p>
+
+            {% endif %}
+
+
+    <input type="submit" value="Submit" />
+    <div style="transform: scale(0);" > {{ form.qs_type }}</div>
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+Yours result start to download after last question or you may download his anytime for this  <a href="http://127.0.0.1:8000/download">link</a>
+

@@ -1,0 +1,4 @@
+qs_id,qs_name,qs_text,qs_type,qs_choices1,qs_choices2,qs_choices3,qs_choices4,qs_choices5,qs_choices6,qs_choices7,qs_choices8,qs_choices9,qs_choices10
+1,like,do you like it?,single,yes, no,depends,,,,,,,
+2,types,what kinds of chocolate do you like?,multiple,milk,dark,belgian,swiss,Option 5,Option 6,Option 7,Option 8,Option 9,Option 10
+3,better,"about liking chocolate, you said: ",string,,,,,,,,,,
